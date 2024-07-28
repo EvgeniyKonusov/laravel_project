@@ -47,19 +47,7 @@ Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('blog/{post}/like', [BlogController::class, 'like'])->name('blog.like');
 
 // CRUD (create, read, update, delete)
-// без мидлвейра:
-Route::prefix('user')->group(function(){
-    Route::redirect('/', 'user/posts')->name('user');
 
-    Route::get('posts', [PostController::class, 'index'])->name('user.posts');
-    Route::get('posts/create', [PostController::class, 'create'])->name('user.posts.create');
-    Route::post('posts', [PostController::class, 'store'])->name('user.posts.store');
-    Route::get('posts/{post}', [PostController::class, 'show'])->name('user.posts.show');
-    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('user.posts.edit');
-    Route::put('posts/{post}', [PostController::class, 'update'])->name('user.posts.update');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->name('user.posts.delete');
-    Route::put('posts/{post}/like', [PostController::class, 'like'])->name('user.posts.like');
-});
 
 // С мидлвейром:
 /* Route::prefix('user')->middleware('auth', 'active', 'admin')->group(function(){
@@ -74,16 +62,7 @@ Route::prefix('user')->group(function(){
 }); */
 
 // Без мидлвейра:
-Route::prefix('admin')->group(function(){
-    Route::get('posts', [PostController::class, 'index'])->name('admin.posts');
-    Route::get('posts/create', [PostController::class, 'create'])->name('admin.posts.create');
-    Route::post('posts', [PostController::class, 'store'])->name('admin.posts.store');
-    Route::get('posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
-    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
-    Route::put('posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->name('admin.posts.delete');
-    Route::put('posts/{post}/like', [PostController::class, 'like'])->name('admin.posts.like');
-});
+
 
 // С мидлвейром:
 /* Route::prefix('admin')->middleware('auth', 'active')->group(function(){

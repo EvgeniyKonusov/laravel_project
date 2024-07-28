@@ -16,7 +16,7 @@ class LogMiddleware
 
 
 // по умолчанию:
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)//: Response
     {
         info($request->url(), $request->all());
         
