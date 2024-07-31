@@ -7,10 +7,11 @@
     <title>@yield('page.title', config('app.name'))</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+    @stack('css')
     <style>
         .container { max-width: 720px; }
         .required:after {content: '*'; color: red; margin-left: 3px}
-        </style>
+    </style>
 </head>
 <body>
     <div class="d-flex flex-column justify-content-between min-vh-100">
@@ -24,5 +25,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    @stack('js')
 </body>
 </html>
