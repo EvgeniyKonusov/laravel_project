@@ -10,8 +10,25 @@ class LoginController extends Controller
     {
         return view('login.index');
     }
-    public function store()
+
+    public function store(Request $request)
     {
+        //$ip = $request->ip();
+        //$path = $request->path();
+        //$url = $request->url();
+        //$full = $request->fullurl();
+
+        //dd($ip, $path, $url, $full);
+
+        //dd($request->is('log*'));
+        //dd($request->routeIs('log*'));
+
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $remember = $request->boolean('remember');
+
+        dd($email, $password, $remember);
+
         return 'Запрос на вход';
     }
 }

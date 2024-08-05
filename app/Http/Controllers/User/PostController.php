@@ -25,8 +25,13 @@ class PostController extends Controller
         return view('user.posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $title = $request->input('title');
+        $content = $request->input('content');
+
+        dd($title, $content);
+
         return 'Запрос создание поста';
     }
 
@@ -43,11 +48,22 @@ class PostController extends Controller
 
     public function edit($post)
     {
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum, <strong>dolor</strong> sit amet consectetur adipisicing elit. Eius, cumque.',
+        ];
+        
         return view('user.posts.edit', compact('post'));
     }
 
-    public function update()
+    public function update(Request $request)
     {
+        $title = $request->input('title');
+        $content = $request->input('content');
+
+        dd($title, $content);
+
         return 'Запрос изменение поста';
     }
 
