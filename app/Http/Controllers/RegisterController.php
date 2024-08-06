@@ -16,13 +16,13 @@ class RegisterController extends Controller
         //$data = $request->only(['name']);
         //$data = $request->except(['name', 'email']);
 
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $agreement = $request->boolean('agreement');
+        //$name = $request->input('name');
+        //$email = $request->input('email');
+        //$password = $request->input('password');
+        //$agreement = $request->boolean('agreement');
         //$avatar = $request->file('avatar');
 
-        dd($name, $email, $password, $agreement);
+        //dd($name, $email, $password, $agreement);
 
         //dd($request->has('foo));
         //dd($request->filled('name'));
@@ -34,6 +34,11 @@ class RegisterController extends Controller
         
         //dd(app()->make('request'));
 
-        return 'Запрос на регистрацию';
+        //return 'Запрос на регистрацию';
+
+        if (true) {
+            return redirect()->back()->withInput();
+        }
+        return redirect()->route('user');
     }
 }

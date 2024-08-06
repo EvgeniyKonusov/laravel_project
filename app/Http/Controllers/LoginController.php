@@ -9,6 +9,7 @@ class LoginController extends Controller
     public function index()
     {
         return view('login.index');
+
     }
 
     public function store(Request $request)
@@ -23,12 +24,21 @@ class LoginController extends Controller
         //dd($request->is('log*'));
         //dd($request->routeIs('log*'));
 
-        $email = $request->input('email');
+        /* $email = $request->input('email');
         $password = $request->input('password');
         $remember = $request->boolean('remember');
 
-        dd($email, $password, $remember);
+        dd($email, $password, $remember); */
 
-        return 'Запрос на вход';
+        //return 'Запрос на вход';
+        //return response('Запрос на вход');
+
+        //return response()->redirectTo('/foo');
+
+        if (true) {
+            return redirect()->back()->withInput();
+        }
+
+        return redirect()->route('user');
     }
 }
