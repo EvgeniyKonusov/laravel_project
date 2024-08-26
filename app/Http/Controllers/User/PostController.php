@@ -31,7 +31,7 @@ class PostController extends Controller
         $content = $request->input('content');
 
         //dd($title, $content);
-
+        session(['alert' => __('Сохранено!')]);
         //return 'Запрос создание поста';
         return redirect()->route('user.posts.show', 123);
     }
@@ -64,7 +64,7 @@ class PostController extends Controller
         $content = $request->input('content');
 
         //dd($title, $content);
-
+        session(['alert' => __('Сохранено!')]);
         //return 'Запрос изменение поста';
         //return redirect()->route('user.posts.show', $post);
         return redirect()->back();
